@@ -7,8 +7,8 @@ class Blackmoon < Formula
   head "https://github.com/lucidaeon/mediumcoeli.git", branch: "main"
 
   bottle do
-    root_url "https://github.com/lucidaeon/homebrew-tap/releases/download/blackmoon-0.4.2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "ebbb57f8bd273ed37a4a2dc036f98333f27472fe0188c86f54a11882ffaefaea"
+    root_url "https://github.com/lucidaeon/mediumcoeli/releases/download/blackmoon/0.4.3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "2a753ed8b4f10838316696837065d832ec7f2a8b8e53dd298064634c6b2572f1"
   end
 
   depends_on "rust" => :build
