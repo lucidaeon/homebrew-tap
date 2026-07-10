@@ -1,15 +1,16 @@
 class Starcat < Formula
   desc "Ephemeris computation and table presentation CLI"
   homepage "https://github.com/lucidaeon/mediumcoeli"
-  url "https://github.com/lucidaeon/mediumcoeli/archive/refs/tags/starcat/0.10.0.tar.gz"
-  sha256 "68517f8caf4fcab61aba4272e5e38930f61d7bed87a89d00d9ac6797afb4edfe"
+  url "https://github.com/lucidaeon/mediumcoeli/archive/refs/tags/citest/starcat/0.11.0.tar.gz"
+  sha256 "2ec28af51eea3bba18ec14dbaa9e6498336f6cffbbe8556809547074f8eeb492"
   license "CC0-1.0"
   head "https://github.com/lucidaeon/mediumcoeli.git", branch: "main"
 
   bottle do
-    root_url "https://github.com/lucidaeon/mediumcoeli/releases/download/starcat/0.10.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "18e64f4d184b19e9b21f8a02ec921c7616771940061a78629bb946c8835212e2"
+    root_url "https://github.com/lucidaeon/mediumcoeli/releases/download/citest/starcat/0.11.0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "81be546e11e885720fb4aa753f92a6268b55413544ed71dbaa9aecd7b7123920"
   end
+
 
   depends_on "rust" => :build
 
