@@ -6,6 +6,11 @@ class Starcat < Formula
   license "CC0-1.0"
   head "https://github.com/lucidaeon/mediumcoeli.git", branch: "main"
 
+  bottle do
+    root_url "https://github.com/lucidaeon/mediumcoeli/releases/download/starcat/0.10.0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "18e64f4d184b19e9b21f8a02ec921c7616771940061a78629bb946c8835212e2"
+  end
+
   depends_on "rust" => :build
 
   def install
