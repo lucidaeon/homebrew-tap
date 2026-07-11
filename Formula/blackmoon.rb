@@ -1,14 +1,14 @@
 class Blackmoon < Formula
   desc "Reads any chart format, merges, writes any format"
   homepage "https://github.com/lucidaeon/mediumcoeli"
-  url "https://github.com/lucidaeon/mediumcoeli/archive/refs/tags/blackmoon/0.4.3.tar.gz"
-  sha256 "1675f28e09073404a9bfad5b8b3a58e61bd5d01a56ad19ce09e5bda61c1faea9"
+  url "https://github.com/lucidaeon/mediumcoeli/archive/refs/tags/blackmoon/0.5.0.tar.gz"
+  sha256 "fbdcc904da11f3236c2548b76c52d1764d4ce13dcd8c353ef2a7c968d9e419b4"
   license "CC0-1.0"
   head "https://github.com/lucidaeon/mediumcoeli.git", branch: "main"
 
   bottle do
-    root_url "https://github.com/lucidaeon/mediumcoeli/releases/download/blackmoon/0.4.3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "2a753ed8b4f10838316696837065d832ec7f2a8b8e53dd298064634c6b2572f1"
+    root_url "https://github.com/lucidaeon/mediumcoeli/releases/download/blackmoon/0.5.0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "3be094eac77621f69211a838b59d7f4be6ec8718c95ae327a5fd974a51ba84d2"
   end
 
   depends_on "rust" => :build
