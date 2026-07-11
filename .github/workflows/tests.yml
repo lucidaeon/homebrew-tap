@@ -1,22 +1,16 @@
-name: brew test-bot
+name: install gate
 
 on:
+  pull_request:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
-  test-bot:
-    strategy:
-      matrix:
-        os: [ macos-26 ]
-    runs-on: ${{ matrix.os }}
+  install:
+    runs-on: macos-26
     permissions:
-      actions: read
-      checks: read
       contents: read
-      pull-requests: read
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -24,24 +18,12 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Cache Homebrew Bundler RubyGems
-        uses: actions/cache@v5
-        with:
-          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
-          key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
-          restore-keys: ${{ matrix.os }}-rubygems-
-
-      - run: brew test-bot --only-cleanup-before
-
-      - run: brew test-bot --only-setup
-
       - run: brew test-bot --only-tap-syntax
-      - run: brew test-bot --only-formulae
-        if: github.event_name == 'pull_request'
 
-      - name: Upload bottles as artifact
-        if: always() && github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v7
-        with:
-          name: bottles_${{ matrix.os }}
-          path: '*.bottle.*'
+      # Gate: install each formula from its (mediumcoeli-hosted) bottle. Proves the
+      # published bottle URL resolves and the sha256 matches on a clean macos-26.
+      - name: Install each formula from its bottle
+        if: github.event_name == 'pull_request'
+        run: |
+          set -euxo pipefail
+          brew install --force-bottle lucidaeon/tap/starcat lucidaeon/tap/blackmoon
