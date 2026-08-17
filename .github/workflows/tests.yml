@@ -26,4 +26,4 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           set -euxo pipefail
-          brew install --force-bottle lucidaeon/tap/starcat lucidaeon/tap/blackmoon
+          brew install --force-bottle lucidaeon/tap/starcat lucidaeon/tap/blackmoon lucidaeon/tap/cvnt
